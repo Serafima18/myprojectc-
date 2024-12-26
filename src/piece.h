@@ -1,20 +1,21 @@
-#ifndef CHECKERS_PIECE_H
-#define CHECKERS_PIECE_H
+#ifndef PIECE_H
+#define PIECE_H
 
-enum class PieceType {
-    EMPTY,
-    RED,
-    WHITE
-};
+enum class Color { RED, WHITE };
 
 class Piece {
-    PieceType type;
-    bool king;
 public:
-    Piece(PieceType type, bool king = false) : type(type), king(king) {}
-    PieceType getType() const { return type; }
-    bool isKing() const { return king; }
-    void setKing(bool king) { king = king; }
+    Piece(Color color, int x, int y);
+    void draw();
+
+    Color getColor() const;
+    void setPosition(int x, int y);
+    int getX() const;
+    int getY() const;
+
+private:
+    Color color;
+    int x, y;
 };
 
-#endif // CHECKERS_PIECE_H
+#endif
